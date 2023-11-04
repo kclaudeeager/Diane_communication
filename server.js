@@ -4,7 +4,8 @@ const config = require('config');
 const cors = require('cors');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-
+require('dotenv').config();
+const mongoURI = process.env.MONGODB_URI;
 const app = express();
 const port = 8080;
 const comment = require('./routes/comment');
@@ -13,7 +14,7 @@ const comment = require('./routes/comment');
 mongoose.set('strictQuery', false);
 
 // MongoDB connection
-mongoose.connect(config.get('DBHost'), {
+mongoose.connect(config.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
