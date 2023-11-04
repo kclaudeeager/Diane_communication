@@ -12,19 +12,27 @@ const comment = require('./routes/comment');
 
 // Set 'strictQuery' option to suppress the deprecation warning
 mongoose.set('strictQuery', false);
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('Connected to MongoDB');
+  })
+  .catch((error) => {
+    console.error('Error connecting to MongoDB:', error);
+  });
+// mongoose.set('strictQuery', false);
 
-// MongoDB connection
-mongoose.connect(mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-    .then(() => {
-        console.log('DB connected');
-    })
-    .catch(err => {
-        console.log(err);
-        process.exit(1);
-    });
+// // MongoDB connection
+// mongoose.connect(mongoURI, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// })
+//     .then(() => {
+//         console.log('DB connected');
+//     })
+//     .catch(err => {
+//         console.log(err);
+//         process.exit(1);
+//     });
 
 // Middleware
 app.use(cors());
