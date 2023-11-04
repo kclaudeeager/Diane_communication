@@ -1,0 +1,31 @@
+{
+  "name": "diane-communication",
+  "version": "1.0.0",
+  "description": "Manifest",
+  "main": "index.js",
+  "repository": "https://github.com/kclaudeeager/Diane_communication.git",
+  "author": "Claude",
+  "license": "MIT",
+  "scripts": {
+    "start": "set NODE_ENV=dev && node server.js",
+    "tests": "mocha --timeout 10000",
+    "test": "nyc mocha --recursive  ./test/*.js --timeout 500000000 --exit"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "config": "^3.3.8",
+    "cors": "^2.8.5",
+    "express": "^4.13.4",
+    "mongoose": "^6.8.0",
+    "morgan": "^1.10.0",
+    "nyc": "^15.1.0",
+    "open": "^8.4.0",
+    "yarn": "^1.22.19"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "mocha": "^2.4.5",
+    "supertest": "^6.3.3"
+  }
+}
