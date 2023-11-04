@@ -7,14 +7,14 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 const mongoURI = process.env.MONGODB_URI;
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 const comment = require('./routes/comment');
 
 // Set 'strictQuery' option to suppress the deprecation warning
 mongoose.set('strictQuery', false);
 
 // MongoDB connection
-mongoose.connect(config.MONGODB_URI, {
+mongoose.connect(mongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
@@ -49,7 +49,7 @@ app.route("/comment/:id")
 
 // Start the server
 app.listen(port, () => {
-    console.log("Listening on port " + port);
+    console.log(`Listening on port at localhost:${port}`);
 });
 
 module.exports = app; // for testing
