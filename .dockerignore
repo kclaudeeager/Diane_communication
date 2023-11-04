@@ -1,0 +1,8 @@
+node_modules/
+build/
+.circleci/
+.github/
+.husky/
+coverage/
+test
+.nyc_output
